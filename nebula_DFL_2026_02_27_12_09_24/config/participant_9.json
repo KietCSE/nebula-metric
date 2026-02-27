@@ -1,0 +1,163 @@
+{
+  "scenario_args": {
+    "name": "nebula_DFL_2026_02_27_12_09_24",
+    "start_time": "27/02/2026 12:09:24",
+    "federation": "DFL",
+    "rounds": 65,
+    "deployment": "docker",
+    "controller": "ubuntu_nebula-controller:5050",
+    "random_seed": 42,
+    "n_nodes": 20,
+    "config_version": "development"
+  },
+  "device_args": {
+    "uid": "a0c152890afadee172a90f7dd51ee07b83ed09d9",
+    "idx": 9,
+    "name": "participant_9_192.168.51.11_45010",
+    "username": "pi",
+    "password": "pi",
+    "role": "malicious",
+    "proxy": false,
+    "malicious": true,
+    "start": false,
+    "accelerator": "cpu",
+    "gpu_id": [],
+    "devices": 2,
+    "strategy": "ddp",
+    "logging": true
+  },
+  "security_args": {
+    "certfile": "/nebula/app/certs/participant_9_cert.pem",
+    "keyfile": "/nebula/app/certs/participant_9_key.pem",
+    "cafile": "/nebula/app/certs/ca_cert.pem"
+  },
+  "federation_args": {
+    "round": 59
+  },
+  "network_args": {
+    "ip": "192.168.51.11",
+    "port": 45010,
+    "addr": "192.168.51.11:45010",
+    "neighbors": "192.168.51.6:45005 192.168.51.7:45006 192.168.51.8:45007 192.168.51.9:45008 192.168.51.10:45009 192.168.51.12:45011 192.168.51.13:45012 192.168.51.14:45013 192.168.51.15:45014 192.168.51.16:45015",
+    "interface": "eth0",
+    "simulation": false,
+    "bandwidth": "5Gbps",
+    "delay": "0ms",
+    "delay-distro": "0ms",
+    "delay-distribution": "normal",
+    "loss": "0%",
+    "duplicate": "0%",
+    "corrupt": "0%",
+    "reordering": "0%"
+  },
+  "adaptive_args": {
+    "model_similarity": true
+  },
+  "mobility_args": {
+    "latitude": 38.023522,
+    "longitude": -1.174389,
+    "change_geo_interval": 5,
+    "grace_time_mobility": 60,
+    "random_geo": false,
+    "mobility": false,
+    "mobility_type": "both",
+    "topology_type": "Fully",
+    "radius_federation": 500,
+    "scheme_mobility": "random",
+    "round_frequency": 1,
+    "neighbors_distance": {},
+    "additional_node": {
+      "status": false,
+      "time_start": 0,
+      "scheme": "random"
+    }
+  },
+  "data_args": {
+    "dataset": "MNIST",
+    "iid": false,
+    "num_workers": 0,
+    "partition_selection": "dirichlet",
+    "partition_parameter": 0.1
+  },
+  "model_args": {
+    "model": "MLP"
+  },
+  "training_args": {
+    "trainer": "lightning",
+    "epochs": 1
+  },
+  "aggregator_args": {
+    "algorithm": "Krum",
+    "aggregation_timeout": 60,
+    "aggregation_push": "slow"
+  },
+  "defense_args": {
+    "reputation": {
+      "enabled": false,
+      "metrics": {},
+      "initial_reputation": 0.2,
+      "weighting_factor": "dynamic"
+    }
+  },
+  "adversarial_args": {
+    "attack_params": {
+      "attacks": "Model Poisoning",
+      "poisoned_node_percent": 80.0,
+      "round_start_attack": 30,
+      "round_stop_attack": 60,
+      "attack_interval": 1,
+      "poisoned_noise_percent": 50.0,
+      "noise_type": "Gaussian"
+    },
+    "fake_behavior": "trainer_aggregator"
+  },
+  "tracking_args": {
+    "enable_remote_tracking": false,
+    "local_tracking": "basic",
+    "log_dir": "/nebula/app/logs",
+    "config_dir": "/nebula/app/config/nebula_DFL_2026_02_27_12_09_24",
+    "run_hash": ""
+  },
+  "mender_args": {
+    "id": "",
+    "mac": "",
+    "device_type": ""
+  },
+  "message_args": {
+    "max_local_messages": 10000,
+    "compression": "zlib"
+  },
+  "reporter_args": {
+    "grace_time_reporter": 10,
+    "report_frequency": 5.139426798457884,
+    "report_status_data_queue": true
+  },
+  "discoverer_args": {
+    "grace_time_discovery": 0,
+    "discovery_frequency": 9.525010755222667,
+    "discovery_interval": 0.2
+  },
+  "health_args": {
+    "grace_time_health": 59.72321073814882,
+    "health_interval": 14.77502931836912,
+    "send_alive_interval": 0.4736896411960379,
+    "check_alive_interval": 5.236471214164013,
+    "alive_timeout": 120
+  },
+  "forwarder_args": {
+    "forwarder_interval": 1.3921795677048454,
+    "forward_messages_interval": 0.043469416314708076,
+    "number_forwarded_messages": 100
+  },
+  "propagator_args": {
+    "propagate_interval": 3,
+    "propagate_model_interval": 0,
+    "propagation_early_stop": 3,
+    "history_size": 20
+  },
+  "misc_args": {
+    "grace_time_connection": 10,
+    "grace_time_start_federation": 10
+  },
+  "trustworthiness": false
+}
